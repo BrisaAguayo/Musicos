@@ -1,4 +1,4 @@
-﻿class Musico
+﻿abstract class Musico
 {
     public string Nombre{get; set;}
     
@@ -14,10 +14,10 @@
     }
 
     //para poder compartir en otro método se debe poner virtual
-    public virtual void Tocar()
-    {
-        Console.WriteLine($"{Nombre} está tocando su instrumento");
-    }
+    public abstract void Tocar();
+     //esto es cuando en vez de abstract es virtual
+     // {   Console.WriteLine($"{Nombre} está tocando su instrumento"); }
+
 }
 
 class Baterista:Musico
@@ -70,3 +70,6 @@ class Program
         Console.WriteLine(banda);
     }
 }
+
+//La clases abstractas solo pueden crear refrencias pero no objetos
+//Abstract significa que la ces una clase demasiado general, pero si tiene sentido derivar otras clases con otros objetos
