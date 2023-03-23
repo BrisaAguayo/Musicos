@@ -8,9 +8,9 @@
     public Musico (string n) {Nombre = n;}
 
 
-    public virtual string GetSaludo() => "Hola soy" + Nombre;
+    public virtual string GetSaludo() => "Hola soy " + Nombre;
 
-    public virtual void Saludar() => Console.WriteLine(GetSaludo)
+    public virtual void Saludar() => GetSaludo();
     
 
     //para poder compartir en otro método se debe poner virtual
@@ -58,16 +58,14 @@ class Bajista:Musico
         Console.WriteLine($"{Nombre} está tocando su {Bajo}");
     }
 
-    public override void Saludar()
-    {
-        Console.WriteLine($"Hola soy {Nombre} y toco el {Bajo}");
-    }
+    public override string GetSaludo() =>  base.GetSaludo() + " y soy bajista";
+    public override void Saludar() => Console.WriteLine(GetSaludo());
 }
 
 class Voz:Musico
 {
 
-    //Constructor Bajo
+    //Constructor Voz
     public string voz {get;set;}
 
     public  Voz (string n, string b):base(n)
@@ -81,10 +79,8 @@ class Voz:Musico
         Console.WriteLine($"El instrumentos de {Nombre} es su {voz}");
     }
 
-    public override void Saludar()
-    {
-        Console.WriteLine($"Hola soy {Nombre} y mi instrumento es mi {voz}");
-    }
+    public override string GetSaludo() =>  base.GetSaludo() + " y mi instrumento es mi voz";
+    public override void Saludar() => Console.WriteLine(GetSaludo());
 }
 
 class Program
